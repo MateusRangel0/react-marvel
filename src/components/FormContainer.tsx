@@ -6,8 +6,8 @@ type FormContainerProps = {
 
 export default function FormContainer({ children }: FormContainerProps) {
   return (
-    <div className="flex items-center justify-center min-h-screen bg-gray-100">
-      <div className="bg-white p-8 rounded shadow-md w-full max-w-md">
+    <div className="flex min-h-screen items-center justify-center bg-gray-100">
+      <div className="w-full max-w-md rounded bg-white p-8 shadow-md">
         {children}
       </div>
     </div>
