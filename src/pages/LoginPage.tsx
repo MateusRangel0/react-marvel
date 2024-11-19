@@ -1,9 +1,9 @@
 import { useContext } from 'react';
 import { FieldValues, useForm } from 'react-hook-form';
-import TextInput from "../components/TextInput";
+import TextInput from "../components/forms/TextInput";
 import Button from "../components/Button";
 import Title from "../components/Title";
-import FormContainer from "../components/FormContainer";
+import FormContainer from "../components/forms/FormContainer";
 import { regEmailValidate } from "../util/form.util";
 import { AuthContext } from "../util/AuthContext";
 import { useNavigate } from "react-router-dom";

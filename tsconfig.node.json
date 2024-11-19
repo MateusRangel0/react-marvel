@@ -6,6 +6,7 @@
     "module": "ESNext",
     "moduleResolution": "node",
     "composite": true,
+    "rootDir": ".",
   },
   "include": ["vite.config.ts"]
 }
