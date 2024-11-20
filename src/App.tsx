@@ -8,6 +8,7 @@ import { Toaster } from "react-hot-toast";
 import ErrorPage from "./pages/ErrorPage";
 import EventListPage from "./pages/event/EventListPage";
 import CharacterDetailPage from "./pages/character/CharacterDetailPage";
+import EventDetailPage from "./pages/event/EventDetailPage";
 
 function App() {
   const queryClient = new QueryClient();
@@ -42,6 +43,14 @@ function App() {
           element: (
             <ProtectedRoute>
               <CharacterDetailPage />
+            </ProtectedRoute>
+          ),
+        },
+        {
+          path: '/events/:uid',
+          element: (
+            <ProtectedRoute>
+              <EventDetailPage />
             </ProtectedRoute>
           ),
         },

@@ -1,9 +1,9 @@
-import { Url } from "url";
 import { CharacterSummary } from "./CharacterSummary";
 import { ComicSummary } from "./ComicSummary";
 import { CreatorSummary } from "./CreatorSummary";
 import { SeriesSummary } from "./SeriesSummary";
 import { StorySummary } from "./StorySummary";
+import { Url } from "./Url";
 
 export interface Event {
   id: number;
