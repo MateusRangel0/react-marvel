@@ -20,18 +20,10 @@ const fetchData = async (endpoint: string, page: number, pageSize: number, query
   return data.data;
 };
 
-export const fetchCharacters = (page: number, pageSize: number, query?: string, orderBy?: string[]) => {
-  return fetchData('characters', page, pageSize, query, orderBy);
-};
-
-export const fetchEvents = (page: number, pageSize: number, query?: string, orderBy?: string[]) => {
-  return fetchData('events', page, pageSize, query, orderBy);
-};
-
-export const fetchCharacterById = async (id: number) => {
+const fetchById = async (endpoint: string, id: number) => {
   const ts = new Date().getTime();
   const hash = md5(`${ts}${PRIVATE_KEY}${API_KEY}`);
-  const response = await fetch(`${defaultUrl}characters/${id}?ts=${ts}&apikey=${API_KEY}&hash=${hash}`);
+  const response = await fetch(`${defaultUrl}${endpoint}/${id}?ts=${ts}&apikey=${API_KEY}&hash=${hash}`);
   
   if (!response.ok) {
     throw new Error(`Error: ${response.status} ${response.statusText}`);
@@ -39,4 +31,20 @@ export const fetchCharacterById = async (id: number) => {
 
   const data = await response.json();
   return data.data;
-}
+};
+
+export const fetchCharacters = (page: number, pageSize: number, query?: string, orderBy?: string[]) => {
+  return fetchData('characters', page, pageSize, query, orderBy);
+};
+
+export const fetchCharacterById = (id: number) => {
+  return fetchById('characters', id);
+};
+
+export const fetchEvents = (page: number, pageSize: number, query?: string, orderBy?: string[]) => {
+  return fetchData('events', page, pageSize, query, orderBy);
+};
+
+export const fetchEventById = (id: number) => {
+  return fetchById('events', id);
+};
