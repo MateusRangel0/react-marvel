@@ -6,6 +6,7 @@ import LoginPage from './pages/LoginPage';
 import CharacterListPage from './pages/character/CharacterListPage';
 import { Toaster } from "react-hot-toast";
 import ErrorPage from "./pages/ErrorPage";
+import EventListPage from "./pages/event/EventListPage";
 
 function App() {
   const queryClient = new QueryClient();
@@ -27,6 +28,14 @@ function App() {
                 element: (
                   <ProtectedRoute>
                     <CharacterListPage />
+                  </ProtectedRoute>
+                ),
+              },
+              {
+                path: '/events',
+                element: (
+                  <ProtectedRoute>
+                    <EventListPage />
                   </ProtectedRoute>
                 ),
               },
