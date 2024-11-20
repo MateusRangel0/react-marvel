@@ -7,7 +7,7 @@ type TitleProps = {
 
 
 export default function Title({ className, children }: TitleProps) {
-  const defaultClassName = twMerge('text-2xl font-bold text-center mb-6', className)
+  const defaultClassName = twMerge('text-2xl font-bold mb-2', className)
 
   return (
     <h1 className={defaultClassName}>{children}</h1>
