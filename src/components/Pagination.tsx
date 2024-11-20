@@ -21,7 +21,7 @@ export default function Pagination(props: Props) {
           onClick={() => props.onPageChange(currentPage - 1)}
           disabled={isFirstPage}
           type="button"
-          className="px-4"
+          className="w-24"
         >
           Previous
         </Button>
@@ -36,7 +36,7 @@ export default function Pagination(props: Props) {
           onClick={() => props.onPageChange(currentPage + 1)}
           disabled={isLastPage}
           type="button"
-          className="px-4"
+          className="w-24"
         >
           Next
         </Button>

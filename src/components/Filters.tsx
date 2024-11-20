@@ -29,14 +29,12 @@ export default function Filters({ onFilterChange }: FiltersProps) {
         value={nameOrder}
         onChange={handleNameOrderChange}
         options={NAME_ORDER_OPTIONS}
-        className="rounded border border-gray-300 px-4 py-2"
       />
       <Select
         id="modifiedOrder"
         value={modifiedOrder}
         onChange={handleModifiedOrderChange}
         options={MODIFIED_ORDER_OPTIONS}
-        className="rounded border border-gray-300 px-4 py-2"
       />
     </div>
   );

@@ -9,7 +9,7 @@ type SelectProps = {
 }
 
 export default function Select({ id, value, onChange, className, options }: SelectProps) {
-  const defaultClassName = twMerge('rounded border border-gray-300 px-4 py-2', className);
+  const defaultClassName = twMerge('rounded border border-gray-300', className);
 
   return (
     <select
