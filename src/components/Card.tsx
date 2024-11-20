@@ -20,7 +20,7 @@ export default function Card({ id, name, description, imgPath, imgExtension }: C
           {description || 'No description available'}
         </p>
       </div>
-      <Button key={id} type="button" className="mt-4">
+      <Button key={id} type="button" className="mt-4 w-full">
         View Details
       </Button>
     </div>

@@ -18,7 +18,7 @@ export default function Search({ onSearch, placeHolder, className }: SearchProps
   };
 
   return (
-    <div className="flex items-center mb-4">
+    <div className="flex items-center">
       <input
         type="text"
         value={query}

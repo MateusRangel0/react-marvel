@@ -8,13 +8,15 @@ import CharacterList from "@/components/character/CharacterList";
 import Pagination from "@/components/Pagination";
 import Search from "@/components/Search";
 import { DEFAULT_PAGE_SIZE } from "@/constants/list.constants";
+import Filters from "@/components/Filters";
 
 function CharactersListPage() {
   const [currentPage, setCurrentPage] = useState(1);
   const [searchQuery, setSearchQuery] = useState('');
+  const [orderBy, setOrderBy] = useState<string[]>([]);
   const { isSuccess, isLoading, error, data } = useQuery({
-    queryKey: ['characters', currentPage, searchQuery],
-    queryFn: () => fetchCharacters(currentPage, DEFAULT_PAGE_SIZE, searchQuery),
+    queryKey: ['characters', currentPage, searchQuery, orderBy],
+    queryFn: () => fetchCharacters(currentPage, DEFAULT_PAGE_SIZE, searchQuery, orderBy),
   });
 
   useEffect(() => {
@@ -32,10 +34,16 @@ function CharactersListPage() {
     setCurrentPage(1);
   };
 
+  const handleFilterChange = (filters: { orderBy: string[] }) => {
+    setOrderBy(filters.orderBy);
+    setCurrentPage(1);
+  };
+
   return (
     <div className="container mx-auto p-4">
-      <div className="flex justify-end mb-6">
-        <Search onSearch={handleSearch} placeHolder="Search character..." />
+      <div className="flex justify-between mb-10">
+        <Filters onFilterChange={handleFilterChange} />
+        <Search onSearch={handleSearch} />
       </div>
       {isLoading && (
         <div className="flex items-center justify-center min-h-screen" data-cy="loading-spinner">

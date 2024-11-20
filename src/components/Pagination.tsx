@@ -1,4 +1,5 @@
 import { DEFAULT_PAGE_SIZE } from "@/constants/list.constants";
+import Button from "./Button";
 
 type Props = {
   currentPage: number;
@@ -15,34 +16,30 @@ export default function Pagination(props: Props) {
 
   return (
     <nav className="flex items-center justify-between py-4 sm:px-0">
-      <div className="ml-4 flex w-0 flex-1">
-        <button
-          className={
-            'relative inline-flex items-center rounded-md bg-white px-4 py-2 text-base font-bold ring-1 ring-inset ring-gray-200 hover:bg-gray-50 focus-visible:outline-offset-0 ' +
-            (isFirstPage ? 'text-gray-400' : 'text-red-600')
-          }
+      <div className="flex w-auto">
+        <Button
           onClick={() => props.onPageChange(currentPage - 1)}
           disabled={isFirstPage}
+          type="button"
+          className="px-4"
         >
           Previous
-        </button>
+        </Button>
       </div>
       <div className="hidden items-center justify-center sm:flex">
         <span className="text-sm font-semibold text-gray-300">
           Page {currentPage} of {pageCount}
         </span>
       </div>
-      <div className="mr-4 flex w-0 flex-1 justify-end ">
-        <button
-          className={
-            'relative inline-flex items-center rounded-md bg-white px-4 py-2 text-base font-bold ring-1 ring-inset ring-gray-200 hover:bg-gray-50 focus-visible:outline-offset-0 ' +
-            (isLastPage ? 'text-gray-400' : 'text-red-600')
-          }
+      <div className="flex w-auto justify-end">
+        <Button
           onClick={() => props.onPageChange(currentPage + 1)}
           disabled={isLastPage}
+          type="button"
+          className="px-4"
         >
           Next
-        </button>
+        </Button>
       </div>
     </nav>
   );
