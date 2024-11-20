@@ -16,17 +16,22 @@ import { ReactNode } from 'react';
 import { Navigate } from "react-router-dom";
 
 function AuthProvider({ children }: { children: ReactNode }) {
-  const [isLoggedIn, setIsLoggedIn] = useState(false);
+  const [isLoggedIn, setIsLoggedIn] = useState<boolean>(() => {
+    const savedIsLoggedIn = localStorage.getItem('isLoggedIn');
+    return savedIsLoggedIn === 'true';
+  });
 
   const login = async (_credentials: { email: string; password: string }) => {
     // Simulate successful login
     setIsLoggedIn(true);
+    localStorage.setItem('isLoggedIn', 'true');
     return true;
-
   };
 
   const logout = () => {
     setIsLoggedIn(false);
+    localStorage.removeItem('isLoggedIn');
+    window.location.reload();
   };
 
   return (
@@ -37,8 +42,7 @@ function AuthProvider({ children }: { children: ReactNode }) {
 }
 
 function ProtectedRoute({ children }: { children: ReactNode }) {
-  const
-    { isLoggedIn } = useContext(AuthContext);
+  const { isLoggedIn } = useContext(AuthContext);
 
   if (!isLoggedIn) {
     return <Navigate to="/" replace />;

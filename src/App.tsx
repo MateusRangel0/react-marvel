@@ -3,7 +3,9 @@ import { RouterProvider, createBrowserRouter } from 'react-router-dom';
 import { AuthProvider, ProtectedRoute } from './util/AuthContext';
 import RootLayout from './components/layouts/RootLayout';
 import LoginPage from './pages/LoginPage';
-import CharacterList from './pages/character/CharacterList';
+import CharacterListPage from './pages/character/CharacterListPage';
+import { Toaster } from "react-hot-toast";
+import ErrorPage from "./pages/ErrorPage";
 
 function App() {
   const queryClient = new QueryClient();
@@ -14,31 +16,30 @@ function App() {
         <RouterProvider router={createBrowserRouter([
           {
             path: '/',
+            element: <LoginPage />,
+          },
+          {
+            path: '/',
             element: <RootLayout />,
             children: [
-              {
-                path: '/',
-                element: <LoginPage />,
-              },
-              {
-                path: '/',
-                element: (
-                  <ProtectedRoute>
-                    <CharacterList />
-                  </ProtectedRoute>
-                ),
-              },
               {
                 path: '/characters',
                 element: (
                   <ProtectedRoute>
-                    <CharacterList />
+                    <CharacterListPage />
                   </ProtectedRoute>
                 ),
               },
             ],
           },
+          {
+            path: '*',
+            element: (
+              <ErrorPage />
+            ),
+          },
         ])} />
+        <Toaster />
       </AuthProvider>
     </QueryClientProvider>
   );

@@ -5,7 +5,7 @@ export function Spinner(props: { className?: string }) {
     <div
       {...props}
       className={twMerge(
-        'text-secondary inline-block h-8 w-8 animate-spin rounded-full border-4 border-solid border-current border-r-transparent align-[-0.125em] motion-reduce:animate-[spin_1.5s_linear_infinite]',
+        'text-gray-300 mt-10 inline-block h-8 w-8 animate-spin rounded-full border-4 border-solid border-current border-r-transparent align-[-0.125em] motion-reduce:animate-[spin_1.5s_linear_infinite]',
         props.className,
       )}
       role="status"
