@@ -6,13 +6,15 @@ import toast from 'react-hot-toast';
 import { Character } from "@/types/Character";
 import CharacterList from "@/components/character/CharacterList";
 import Pagination from "@/components/Pagination";
+import Search from "@/components/Search";
 import { DEFAULT_PAGE_SIZE } from "@/constants/list.constants";
 
 function CharactersListPage() {
   const [currentPage, setCurrentPage] = useState(1);
+  const [searchQuery, setSearchQuery] = useState('');
   const { isSuccess, isLoading, error, data } = useQuery({
-    queryKey: ['characters', currentPage],
-    queryFn: () => fetchCharacters(currentPage, DEFAULT_PAGE_SIZE),
+    queryKey: ['characters', currentPage, searchQuery],
+    queryFn: () => fetchCharacters(currentPage, DEFAULT_PAGE_SIZE, searchQuery),
   });
 
   useEffect(() => {
@@ -25,8 +27,16 @@ function CharactersListPage() {
     setCurrentPage(page);
   };
 
+  const handleSearch = (query: string) => {
+    setSearchQuery(query);
+    setCurrentPage(1);
+  };
+
   return (
     <div className="container mx-auto p-4">
+      <div className="flex justify-end mb-6">
+        <Search onSearch={handleSearch} placeHolder="Search character..." />
+      </div>
       {isLoading && (
         <div className="flex items-center justify-center min-h-screen" data-cy="loading-spinner">
           <Spinner className="mx-0" />
