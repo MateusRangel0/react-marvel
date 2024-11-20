@@ -1,4 +1,6 @@
 import { createContext, useContext, useState } from 'react';
+import { ReactNode } from 'react';
+import { Navigate } from "react-router-dom";
 
 interface AuthContextType {
   isLoggedIn: boolean;
@@ -12,8 +14,6 @@ const AuthContext = createContext<AuthContextType>({
   logout: () => { },
 });
 
-import { ReactNode } from 'react';
-import { Navigate } from "react-router-dom";
 
 function AuthProvider({ children }: { children: ReactNode }) {
   const [isLoggedIn, setIsLoggedIn] = useState<boolean>(() => {
@@ -31,7 +31,7 @@ function AuthProvider({ children }: { children: ReactNode }) {
   const logout = () => {
     setIsLoggedIn(false);
     localStorage.removeItem('isLoggedIn');
-    window.location.reload();
+    window.location.href = '/';
   };
 
   return (

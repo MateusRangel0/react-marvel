@@ -11,43 +11,43 @@ import EventListPage from "./pages/event/EventListPage";
 function App() {
   const queryClient = new QueryClient();
 
+  const router = createBrowserRouter([
+    {
+      path: '/',
+      element: <LoginPage />,
+    },
+    {
+      path: '/',
+      element: <RootLayout />,
+      children: [
+        {
+          path: '/characters',
+          element: (
+            <ProtectedRoute>
+              <CharacterListPage />
+            </ProtectedRoute>
+          ),
+        },
+        {
+          path: '/events',
+          element: (
+            <ProtectedRoute>
+              <EventListPage />
+            </ProtectedRoute>
+          ),
+        },
+      ],
+    },
+    {
+      path: '*',
+      element: <ErrorPage />,
+    },
+  ]);
+
   return (
     <QueryClientProvider client={queryClient}>
       <AuthProvider>
-        <RouterProvider router={createBrowserRouter([
-          {
-            path: '/',
-            element: <LoginPage />,
-          },
-          {
-            path: '/',
-            element: <RootLayout />,
-            children: [
-              {
-                path: '/characters',
-                element: (
-                  <ProtectedRoute>
-                    <CharacterListPage />
-                  </ProtectedRoute>
-                ),
-              },
-              {
-                path: '/events',
-                element: (
-                  <ProtectedRoute>
-                    <EventListPage />
-                  </ProtectedRoute>
-                ),
-              },
-            ],
-          },
-          {
-            path: '*',
-            element: (
-              <ErrorPage />
-            ),
-          },
-        ])} />
+        <RouterProvider router={router} />
         <Toaster />
       </AuthProvider>
     </QueryClientProvider>
