@@ -7,15 +7,15 @@ export default function Header() {
   const { logout } = useContext(AuthContext);
 
   return (
-    <header className="bg-red-700 text-white p-4 flex justify-between items-center">
+    <header className="flex items-center justify-between bg-red-700 p-4 text-white">
       <div className="flex items-center">
-        <img src={marvelLogo} alt="Marvel Logo" className="h-8 ml-4 mr-8 w-24" />
+        <img src={marvelLogo} alt="Marvel Logo" className="ml-4 mr-8 h-8 w-24" />
         <nav>
-          <Link to="/characters" className="mr-4 hover:underline font-bold">Characters</Link>
-          <Link to="/events" className="hover:underline font-bold">Events</Link>
+          <Link to="/characters" className="mr-4 font-bold hover:underline">Characters</Link>
+          <Link to="/events" className="font-bold hover:underline">Events</Link>
         </nav>
       </div>
-      <button onClick={logout} className="hover:underline font-bold mr-6">
+      <button onClick={logout} className="mr-6 font-bold hover:underline">
         Logout
       </button>
     </header>

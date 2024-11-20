@@ -12,10 +12,10 @@ export default function Card({ id, name, description, imgPath, imgExtension }: C
   const imageUrl = `${imgPath}.${imgExtension}`;
 
   return (
-    <div className="bg-gray-100 shadow-lg rounded-lg p-4 w-64 max-w-sm mx-auto">
-      <img src={imageUrl} alt={name} className="w-full h-44 rounded-md object-cover" />
-      <h2 className="font-semibold text-center mt-4">{name}</h2>
-      <div className="text-gray-700 text-center overflow-auto h-28 scrollbar-hide">
+    <div className="mx-auto w-64 max-w-sm rounded-lg bg-gray-100 p-4 shadow-lg">
+      <img src={imageUrl} alt={name} className="h-44 w-full rounded-md object-cover" />
+      <h2 className="mt-4 text-center font-semibold">{name}</h2>
+      <div className="scrollbar-hide h-28 overflow-auto text-center text-gray-700">
         <p>
           {description || 'No description available'}
         </p>

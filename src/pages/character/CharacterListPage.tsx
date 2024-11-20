@@ -41,12 +41,12 @@ function CharactersListPage() {
 
   return (
     <div className="container mx-auto p-4">
-      <div className="flex justify-between mb-10">
+      <div className="mb-10 flex justify-between">
         <Filters onFilterChange={handleFilterChange} />
         <Search onSearch={handleSearch} />
       </div>
       {isLoading && (
-        <div className="flex items-center justify-center min-h-screen" data-cy="loading-spinner">
+        <div className="flex min-h-screen items-center justify-center" data-cy="loading-spinner">
           <Spinner className="mx-0" />
         </div>
       )}
