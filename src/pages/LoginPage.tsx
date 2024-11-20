@@ -30,7 +30,7 @@ export default function LoginPage() {
 
   return (
     <FormContainer>
-      <Title className="mb-6">React Marvel Login</Title>
+      <Title className="mb-6 text-center">React Marvel Login</Title>
       <form onSubmit={handleSubmit(handleFormSubmit)}>
         <div className="space-y-2">
           <Label htmlFor="email">Email</Label>

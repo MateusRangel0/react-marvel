@@ -1,3 +1,9 @@
+import { ComicSummary } from "./ComicSummary";
+import { Event } from './Event';
+import { SeriesSummary } from "./SeriesSummary";
+import { StorySummary } from "./StorySummary";
+import { Url } from "./Url";
+
 export interface Character {
   id: number;
   name: string;
@@ -29,25 +35,4 @@ export interface Character {
     items: Event[];
   };
   urls: Url[];
-}
-
-interface ComicSummary {
-  resourceURI: string;
-  name: string;
-}
-
-interface SeriesSummary {
-  resourceURI: string;
-  name: string;
-}
-
-interface StorySummary {
-  resourceURI: string;
-  name: string;
-  type: string;
-}
-
-interface Url {
-  type: string;
-  url: string;
 }
