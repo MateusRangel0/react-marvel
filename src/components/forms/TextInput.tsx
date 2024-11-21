@@ -15,7 +15,7 @@ type TextInputProps<T extends FieldValues> = {
 }
 
 export default function TextInput<T extends FieldValues>({ id, placeholder, value, onChange, className, register, type, name, errors }: TextInputProps<T>) {
-  const defaultClassName = twMerge('w-full border border-gray-200 p-2 rounded', className)
+  const defaultClassName = twMerge('w-full border border-gray-200 p-2 rounded focus:border-gray-500 focus:ring-gray-500', className);
 
   return (
     <div>
