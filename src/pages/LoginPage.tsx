@@ -24,7 +24,11 @@ export default function LoginPage() {
       }
     }
     catch (error) {
-      toast.error('Invalid email or password');
+      if (error instanceof Error) {
+        toast.error(error.message || 'Invalid email or password');
+      } else {
+        toast.error('Invalid email or password');
+      }
     }
   };
 

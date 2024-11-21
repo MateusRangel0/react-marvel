@@ -14,18 +14,18 @@ export default function InfoList<T>({ title, items, renderItem }: InfoListProps<
   };
 
   return (
-    <div className="p-4 bg-white rounded-lg shadow-md flex flex-col">
-      <div className="flex justify-between items-center mb-2">
+    <div className="flex flex-col rounded-lg bg-white p-4 shadow-md">
+      <div className="mb-2 flex items-center justify-between">
         <h2 className="text-xl font-semibold text-gray-800">{title}</h2>
         <button onClick={toggleCollapse} className="text-gray-500 hover:text-red-500">
           {isCollapsed ? 'Open' : 'Close'}
         </button>
       </div>
       <div className={isCollapsed ? 'hidden' : 'flex-1'}>
-        <ul className="list-none pl-4 space-y-2">
+        <ul className="list-none space-y-2 pl-4">
           {items.map((item, index) => (
             <li key={index} className="flex items-center border-b border-gray-100 py-2">
-              <span className="mr-2 text-gray-600 font-medium">{renderItem(item)}</span>
+              <span className="mr-2 font-medium text-gray-600">{renderItem(item)}</span>
             </li>
           ))}
         </ul>
