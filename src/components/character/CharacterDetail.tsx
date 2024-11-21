@@ -26,7 +26,6 @@ export default function CharacterDetail({ character }: CharacterDetailProps) {
           {url.type}
         </a>
       )} />
-
     </DetailContainer>
   );
 }

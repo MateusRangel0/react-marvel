@@ -14,7 +14,6 @@ const AuthContext = createContext<AuthContextType>({
   logout: () => { },
 });
 
-
 function AuthProvider({ children }: { children: ReactNode }) {
   const [isLoggedIn, setIsLoggedIn] = useState<boolean>(() => {
     const savedIsLoggedIn = localStorage.getItem('isLoggedIn');
@@ -22,7 +21,6 @@ function AuthProvider({ children }: { children: ReactNode }) {
   });
 
   const login = async (_credentials: { email: string; password: string }) => {
-    // Simulate successful login
     setIsLoggedIn(true);
     localStorage.setItem('isLoggedIn', 'true');
     return true;
