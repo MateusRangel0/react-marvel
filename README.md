@@ -45,7 +45,7 @@ React Marvel is a project built with React and TypeScript that utilizes the Marv
    ```bash
    npm install
 
-3. Create a .env file in the project root and add your Marvel API keys:
+3. Create an `environments` folder in the project root, and then create a `.env` file inside this folder. Add your Marvel API keys to the file:
 
    ```bash
    VITE_API_KEY=your_public_api_key  
